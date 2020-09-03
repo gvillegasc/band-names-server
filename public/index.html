@@ -7,5 +7,24 @@
 	</head>
 	<body>
 		<h1>Acceso Denegado</h1>
+
+		<script src="socket.io/socket.io.js"></script>
+		<script>
+			var socket = io();
+
+			socket.on('connect', () => {
+				console.log('Conectado al servidor');
+			});
+
+			socket.on('disconnect', () => {
+				console.log('Perdimos la conexion al servidor');
+			});
+
+			socket.emit('mensaje', { nombre: 'Gerardo' });
+
+			socket.on('mensaje', (payload) => {
+				console.log('Escuchando', payload);
+			});
+		</script>
 	</body>
 </html>
