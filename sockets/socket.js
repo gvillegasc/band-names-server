@@ -5,9 +5,9 @@ const BandModel = require('../models/band.model');
 const bands = new BandsModel();
 
 bands.addBand(new BandModel('Queen'));
-bands.addBand(new BandModel('Centella'));
-bands.addBand(new BandModel('Chacalon'));
-bands.addBand(new BandModel('Corali'));
+bands.addBand(new BandModel('The Score'));
+bands.addBand(new BandModel('Artick Monkeys'));
+bands.addBand(new BandModel('Daft Punk'));
 
 // console.log(bands);
 io.on('connection', (client) => {
