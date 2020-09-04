@@ -26,4 +26,19 @@ io.on('connection', (client) => {
 		// io.emit('nuevo-mensaje', payload); //emite a todos;
 		client.broadcast.emit('nuevo-mensaje', payload);
 	});
+
+	client.on('vote-band', (payload) => {
+		bands.voteBand(payload.id);
+		io.emit('active-bands', bands.getBands());
+	});
+
+	client.on('add-band', (payload) => {
+		bands.addBand(new BandModel(payload.name));
+		io.emit('active-bands', bands.getBands());
+	});
+
+	client.on('delete-band', (payload) => {
+		bands.deleteBand(payload);
+		io.emit('active-bands', bands.getBands());
+	});
 });
