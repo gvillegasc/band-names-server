@@ -12,7 +12,7 @@ bands.addBand(new BandModel('Daft Punk'));
 // console.log(bands);
 io.on('connection', (client) => {
 	client.emit('active-bands', bands.getBands());
-	// console.log('Cliente conectado');
+	console.log('Cliente conectado');
 	client.on('disconnect', () => {
 		console.log('Cliente desconectado');
 	});
